@@ -12,3 +12,6 @@ bst.insert(80);
 bst.insert(90);
 
 console.log(bst);
+
+console.log(bst.contains(393));
+console.log(bst.contains(30));

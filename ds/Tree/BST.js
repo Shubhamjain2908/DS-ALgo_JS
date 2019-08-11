@@ -20,4 +20,22 @@ BST.prototype.insert = function (value) {
     }
 }
 
+BST.prototype.contains = function (value) {
+    if (value === this.value) {
+        return true;
+    } else if (value < this.value) {
+        if (!this.left) {
+            return false;
+        } else {
+            return this.left.contains(value);
+        }
+    } else if (value > this.value) {
+        if (!this.right) {
+            return false;
+        } else {
+            return this.right.contains(value);
+        }
+    }
+}
+
 module.exports = BST;
