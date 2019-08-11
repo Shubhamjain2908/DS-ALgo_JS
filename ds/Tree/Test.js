@@ -15,3 +15,9 @@ console.log(bst);
 
 console.log(bst.contains(393));
 console.log(bst.contains(30));
+
+const log = function (value) {
+    console.log(value);
+}
+
+bst.depthFirstTraversal(log);
