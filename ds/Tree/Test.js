@@ -20,4 +20,11 @@ const log = function (value) {
     console.log(value);
 }
 
+console.log('================ InOrder ============');
 bst.depthFirstTraversal(log, 'in-order');
+
+console.log('================ PreOrder ============');
+bst.depthFirstTraversal(log, 'pre-order');
+
+console.log('================ PostOrder ============');
+bst.depthFirstTraversal(log, 'post-order');
