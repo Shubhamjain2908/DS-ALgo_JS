@@ -71,4 +71,14 @@ BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
     }
 }
 
+BST.prototype.getMinVal = function () {
+    if (!this.left) return this.value;
+    return this.left.getMinVal();
+}
+
+BST.prototype.getMaxVal = function () {
+    if (!this.right) return this.value;
+    return this.right.getMaxVal();
+}
+
 module.exports = BST;

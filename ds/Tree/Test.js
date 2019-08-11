@@ -36,3 +36,6 @@ bst.depthFirstTraversal(log, 'post-order');
 
 console.log('+++++++++++++++++++BFS++++++++++++++++++++++');
 bst.breadthFirstTraversal(log);
+
+console.log('Min => ', bst.getMinVal());
+console.log('Max => ', bst.getMaxVal());
