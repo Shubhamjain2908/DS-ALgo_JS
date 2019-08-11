@@ -20,4 +20,4 @@ const log = function (value) {
     console.log(value);
 }
 
-bst.depthFirstTraversal(log);
+bst.depthFirstTraversal(log, 'in-order');
