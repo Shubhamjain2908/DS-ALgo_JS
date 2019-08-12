@@ -13,3 +13,5 @@ console.log(myHT.buckets);
 myHT.insert('Shubham', 22);
 
 console.log(myHT.get('Shubham'));
+
+console.log(myHT.retrieveAll());

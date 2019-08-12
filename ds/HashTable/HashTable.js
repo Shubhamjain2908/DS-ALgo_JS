@@ -53,4 +53,16 @@ HashTable.prototype.get = function (key) {
     }
 }
 
+HashTable.prototype.retrieveAll = function () {
+    var allNodes = [];
+    for (let i = 0; i < this.numBuckets; i++) {
+        var currentNode = this.buckets[i];
+        while (currentNode) {
+            allNodes.push({ key: currentNode.key, value: currentNode.value });
+            currentNode = currentNode.next;
+        }
+    }
+    return allNodes;
+}
+
 module.exports = HashTable;
