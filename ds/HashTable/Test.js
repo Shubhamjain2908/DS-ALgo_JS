@@ -8,4 +8,4 @@ myHT.insert('Virat', 30);
 
 console.log(myHT.hash('Becca'));
 
-console.log(myHT);
+console.log(myHT.buckets);
