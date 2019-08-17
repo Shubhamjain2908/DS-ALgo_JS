@@ -3,20 +3,16 @@ function createButtons() {
     var body = document.getElementsByTagName("BODY")[0];
     var button = document.createElement("BUTTON");
     button.innerHTML = 'Button ' + i;
-
-    // IIFE
-    // This num value will be same for it's own scope
-    // Despite changing the value of i.
-    ((num) => {
-      button.onclick = function () {
-        alert('This is button ' + num);
-      };
-    })(i);
-
+    addClickFunctionality(button, i);
     body.appendChild(button);
   }
 }
 
-createButtons();
+const addClickFunctionality = (button, num) => {
+  button.onclick = () => {
+    alert('This is button ' + num);
+  };
+}
 
-// Solved it using IIFE
+
+createButtons();
