@@ -13,13 +13,15 @@ console.log(counter);
 
 const getSecret = (secret) => {
     return {
-        get: () => secret
+        get: () => secret,
+        post: () => secret + ' : POST' ,
     };
 };
 
 const secret = msg => () => msg;
 
 console.log(getSecret(82).get());
+console.log(getSecret(82).post());
 console.log(secret('Shubham')());
 
 const partialApply = (fn, ...fixedArgs) => {
