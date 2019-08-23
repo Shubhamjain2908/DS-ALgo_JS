@@ -6,30 +6,26 @@ console.log('preson2: shows ticket');
 const preMovie = async () => {
     
     const promiseWifeBrigingTicket = new Promise((resolve, reject) => {
-        setTimeout(() => resolve('ticket'), 3000);
+        setTimeout(() => reject('ticket'), 3000);
     });
     
     const getPopcorn = new Promise(resolve => resolve('popcorn'));
 
-    let ticket = await promiseWifeBrigingTicket;
+    const getCandy = new Promise(resolve => resolve('candy'));
     
-    console.log(`wife: i have the ${ticket}`);
-    console.log('husband: we should go in');
-    console.log('wife: no i am hungry');
+    const getCoke = new Promise(resolve => resolve('coke'));
+
+    let ticket;
     
-    let popcorn = await getPopcorn;
+    try {
+        ticket = await promiseWifeBrigingTicket;
+        let [popcorn, candy, coke] = await Promise.all([getPopcorn, getCandy, getCoke]);
 
-    console.log(`husband: I got some ${popcorn}`);
-    console.log('husband: we should go in');
-    console.log('wife: I need butter on my popcorn');
+    console.log(`${popcorn}, ${candy}, ${coke}`);
 
-    const addButter = new Promise(resolve => resolve('butter'));
-
-    let butter = await addButter;
-    console.log(`husband: I got some ${butter} on popcorn`);
-    console.log('husband: anything else darling?');
-    console.log('wife: lets go we are getting late');
-    console.log('husband: thank you for the reminder *grins*');
+    } catch (err) {
+        ticket = 'sad face';
+    }
 
     return ticket;
 }
