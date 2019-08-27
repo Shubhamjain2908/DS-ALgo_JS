@@ -70,5 +70,7 @@ const lcs = (arr1, arr2, m, n) => {
 
 const str1 = 'banana';
 const str2 = 'million';
-console.log(getPalinString(str1));
-console.log(getPalinString(str2));
+const str3 = 'tracecars';
+console.log(str1, '->', getPalinString(str1));
+console.log(str2, '->', getPalinString(str2));
+console.log(str3, '->', getPalinString(str3));
