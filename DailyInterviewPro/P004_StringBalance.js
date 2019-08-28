@@ -32,12 +32,14 @@ const isBalancedString = (str) => {
             stack.push(e);
         } else if ((e === ')' && top === '(') || (e === ']' && top === '[') || (e === '}' && top === '{')) {
             stack.pop();
+        } else {
+            return false;
         }
     }
     return stack.length === 0;
 }
 
-const str1 = '((()))';
+const str1 = '1(';
 const str2 = '[()]{}';
 const str3 = '({[)]';
 
