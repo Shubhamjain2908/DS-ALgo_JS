@@ -32,14 +32,14 @@ const sort = (arr) => {
             thirdMin = e;
         }
     }
-    for (let i = 0; i < obj[min]; i++) {
-        arr[i] = min;
-    }
-    for (let i = obj[min]; i < obj[min] + obj[secondMin]; i++) {
-        arr[i] = secondMin;
-    }
-    for (let i = obj[min] + obj[secondMin]; i < obj[min] + obj[secondMin] + obj[thirdMin]; i++) {
-        arr[i] = thirdMin;
+    for (let i = 0; i < arr.length; i++) {
+        if (i < obj[min]) {
+            arr[i] = min;
+        } else if (i < obj[min] + obj[secondMin]) {
+            arr[i] = secondMin;
+        } else {
+            arr[i] = thirdMin;
+        }
     }
     return arr;
 }
