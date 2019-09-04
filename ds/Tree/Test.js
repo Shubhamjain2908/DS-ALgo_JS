@@ -39,3 +39,8 @@ bst.breadthFirstTraversal(log);
 
 console.log('Min => ', bst.getMinVal());
 console.log('Max => ', bst.getMaxVal());
+
+
+console.log('+++++++++++++++++++BFS++++++++++++++++++++++');
+const newTree = bst.delete(105);
+newTree.breadthFirstTraversal(log);

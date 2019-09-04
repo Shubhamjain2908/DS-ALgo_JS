@@ -81,4 +81,21 @@ BST.prototype.getMaxVal = function () {
     return this.right.getMaxVal();
 }
 
+BST.prototype.delete = function (key) {
+    let node = this;
+    if (!node) return node;
+    if (key < node.value) {
+        node.left = node.left.delete(key);
+    } else if (key > node.value) {
+        node.right = node.right.delete(key);
+    } else {
+        if (!node.left) return node.right;
+        else if (!node.right) return node.left;
+
+        node.value = node.right.getMinVal();
+        node.right = node.right.delete(node.value);
+    }
+    return node;
+}
+
 module.exports = BST;
