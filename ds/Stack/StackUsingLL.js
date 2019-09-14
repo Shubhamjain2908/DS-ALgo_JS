@@ -12,7 +12,7 @@ class Stack {
         this.length = 0;
     }
     peek() {
-        return this.top;
+        return this.top ? this.top.value : null;
     }
     push(value) {
         const newNode = new Node(value);
@@ -35,7 +35,7 @@ class Stack {
         const currentTop = this.top;
         this.top = this.top.next;
         this.length--;
-        return currentTop;
+        return currentTop.value;
     }
     isEmpty() {
         return this.length === 0;
