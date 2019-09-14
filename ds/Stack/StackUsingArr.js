@@ -7,9 +7,7 @@ Stack.prototype.push = function (value) {
 }
 
 Stack.prototype.pop = function () {
-    if (this.arr.length === 0)
-        throw new Error('Stack Underflow');
-    this.arr.pop();
+    return this.arr.pop();
 }
 
 Stack.prototype.isEmpty = function () {
