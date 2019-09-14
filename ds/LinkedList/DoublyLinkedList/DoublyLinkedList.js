@@ -10,7 +10,7 @@ function Node(value, next, prev) {
 }
 
 LinkedList.prototype.addToHead = function (value) {
-    var newNode = new Node(value, this.head, null);
+    let newNode = new Node(value, this.head, null);
     if (this.head) {
         this.head.prev = newNode;
     } else {
@@ -20,7 +20,7 @@ LinkedList.prototype.addToHead = function (value) {
 }
 
 LinkedList.prototype.addToTail = function (value) {
-    var newNode = new Node(value, null, this.tail);
+    let newNode = new Node(value, null, this.tail);
     if (this.tail) {
         this.tail.next = newNode;
     } else {
@@ -34,7 +34,7 @@ LinkedList.prototype.removeHead = function () {
     if (!this.head) {
         return null;
     }
-    var val = this.head.value;
+    let val = this.head.value;
     this.head = this.head.next;
     if (this.head) {
         this.head.prev = null;
@@ -48,7 +48,7 @@ LinkedList.prototype.removeTail = function () {
     if (!this.tail) {
         return null;
     }
-    var val = this.tail.value;
+    let val = this.tail.value;
     this.tail = this.tail.prev;
     if (this.tail) {
         this.tail.next = null;
@@ -59,7 +59,7 @@ LinkedList.prototype.removeTail = function () {
 }
 
 LinkedList.prototype.search = function (searchValue) {
-    var currentNode = this.head;
+    let currentNode = this.head;
     while (currentNode) {
         if (currentNode.value === searchValue) {
             return currentNode;
@@ -70,9 +70,9 @@ LinkedList.prototype.search = function (searchValue) {
 }
 
 LinkedList.prototype.indexOf = function (value) {
-    var currentNode = this.head;
-    var indexes = [];
-    var currentIndex = 0;
+    let currentNode = this.head;
+    let indexes = [];
+    let currentIndex = 0;
     while (currentNode) {
         if (currentNode.value === value) {
             indexes.push(currentIndex);

@@ -109,7 +109,7 @@ LinkedList.prototype.remove = function (value) {
 }
 
 LinkedList.prototype.search = function (searchValue) {
-    var currentNode = this.head;
+    let currentNode = this.head;
     while (currentNode) {
         if (currentNode.value === searchValue) {
             return currentNode;
