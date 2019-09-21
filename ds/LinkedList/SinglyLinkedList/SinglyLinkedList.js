@@ -119,4 +119,14 @@ LinkedList.prototype.search = function (searchValue) {
     return null;
 }
 
+LinkedList.prototype.lenght = function () {
+    let len = 0;
+    let currentNode = this.head;
+    while (currentNode) {
+        len++;
+        currentNode = currentNode.next;
+    }
+    return len;
+}
+
 module.exports = LinkedList;
