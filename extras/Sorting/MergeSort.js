@@ -39,6 +39,10 @@ const merge = (left, right) => {
     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
 
-const arr = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-const sortedArray = mergeSort(arr);
-console.log(sortedArray);
+// const arr = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// const sortedArray = mergeSort(arr);
+// console.log(sortedArray);
+
+module.exports = {
+    mergeSort
+}
