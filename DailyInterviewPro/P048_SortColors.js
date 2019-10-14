@@ -14,54 +14,15 @@
     Output: [0,0,1,1,2,2]
  */
 
-// const sortColors = (array) => {
-//     let zeroIndex = -1;
-//     let oneIndex = -1;
-//     let twoIndex = -1;
-//     const len = array.length;
-//     for (let i = 0; i < len; i++) {
-//         const e = array[i];
-//         if (e === 0) {
-//             zeroIndex++;
-//             // oneIndex++;
-//             // twoIndex++;
-//             let temp = array[zeroIndex];
-//             array[zeroIndex] = array[i];
-//             array[i] = temp;
-//             // if (typeof zeroIndex !== 'undefined') {
-//             //     array[zeroIndex] = array[i] + (array[i] = array[zeroIndex], 0);
-//             // } else {
-//             //     zeroIndex = i;
-//             // }
-//         } else if (e === 1) {
-//             // oneIndex++;
-//             // twoIndex++;
-//             // array[oneIndex] = 1;
-//             // if (typeof oneIndex !== 'undefined') {
-//             //     array[oneIndex] = array[i] + (array[i] = array[oneIndex], 0);
-//             // } else {
-//             //     oneIndex = i;
-//             // }
-//         } else if (e === 2) {
-//             twoIndex++;
-//             // array[array.length - 1 - twoIndex] = 2;
-//             let temp = array[len - 1 - twoIndex];
-//             array[len - 1 - twoIndex] = array[i];
-//             array[i] = temp;
-//         }
-//         console.log(e, zeroIndex, oneIndex, twoIndex);
-//     }
-//     return arr;
-// }
 // a = b + (b=a, 0) // Swapping two no.
 
 const sortColors = (array) => {
     const len = array.length;
-    let low = 0, mid = 0, temp = 0, high = len - 1;
+    let low = 0, mid = 0, high = len - 1;
     while (mid <= high) {
         switch (array[mid]) {
             case 0:
-                [array[mid], array[low]] = [array[low], array[mid]];
+                [array[mid], array[low]] = [array[low], array[mid]];    // Swapping
                 low++;
                 mid++;
                 break;
@@ -69,7 +30,7 @@ const sortColors = (array) => {
                 mid++;
                 break;
             case 2:
-                [array[mid], array[high]] = [array[high], array[mid]];
+                [array[mid], array[high]] = [array[high], array[mid]];  // Swapping
                 high--;
                 break;
         }
