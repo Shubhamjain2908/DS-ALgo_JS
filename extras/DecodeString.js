@@ -19,12 +19,11 @@
 const computeString = (str, N) => new Array(+N).fill(str).join('');
 
 const decodeString = str => {
-    str = [...str];
     let charStack = [];
     let numStack = [];
     let isChar = false;
     for (let i = 0; i < str.length; i++) {
-        const e = str[i];
+        const e = str.charAt(i);
         if (e === ']') {
             const ch = charStack.pop();
             const no = numStack.pop();
