@@ -1,22 +1,21 @@
 const Graph = require('../Graph');
 
-const BFS = (graph, vertex) => {
-    let visited = new Array(graph.numberOfNodes).fill(false);
-    visited[vertex] = true;
-    let queue = [vertex];
+const DFS = (graph, vertex) => {
     let result = [];
-    while (queue.length) {
-        let V = queue.shift();
-        result.push(V);
-        let adjNodes = graph.adjacentList[V];
+    let visited = new Array(graph.numberOfNodes).fill(false);
+    const dfs_helper = (vertex, visited) => {
+        visited[vertex] = true;
+        result.push(vertex);
+        let adjNodes = graph.adjacentList[vertex];
         while (adjNodes.length) {
             let temp = adjNodes.shift();
             if (!visited[temp]) {
-                queue.push(temp);
-                visited[temp] = true;
+                dfs_helper(temp, visited);
             }
         }
+
     }
+    dfs_helper(vertex, visited);
     console.log(result);
 }
 
@@ -36,7 +35,8 @@ myGraph.addEdge('1', '2');
 myGraph.addEdge('1', '0');
 myGraph.addEdge('0', '2');
 myGraph.addEdge('6', '5');
-BFS(myGraph, '2');
+
+DFS(myGraph, '2');
 
 const myGraph2 = new Graph();
 myGraph2.addVertex(0);
@@ -49,4 +49,4 @@ myGraph2.addEdge(1, 2);
 myGraph2.addEdge(2, 0);
 myGraph2.addEdge(2, 3);
 myGraph2.addEdge(3, 3);
-BFS(myGraph2, 2);
+DFS(myGraph2, 2);
