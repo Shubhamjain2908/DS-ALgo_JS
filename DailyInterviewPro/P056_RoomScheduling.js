@@ -22,20 +22,20 @@ const noOfRooms = intervals => {
         !endTimes[end] ? endTimes[end] = 1 : endTimes[end] += 1;
     });
 
-    let max_class_count = 0, current_class_count = 0;
+    let maxClassCount = 0, currentClassCount = 0;
     for (let i = minTime; i < maxTime; i++) {
         if (startTimes[i]) {
-            current_class_count += startTimes[i];
-            if (current_class_count > max_class_count) {
-                max_class_count = current_class_count;
+            currentClassCount += startTimes[i];
+            if (currentClassCount > maxClassCount) {
+                maxClassCount = currentClassCount;
             }
         }
         if (endTimes[i]) {
-            current_class_count -= endTimes[i];
+            currentClassCount -= endTimes[i];
         }
     }
 
-    return max_class_count;
+    return maxClassCount;
 
 }
 
