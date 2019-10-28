@@ -21,21 +21,7 @@ function Tree(value) {
 }
 
 const evaluatesTree = tree => {
-    const evaluateExpression = (a, op, b) => {
-        a = +a;
-        b = +b;
-        switch (op) {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '*':
-                return a * b;
-            case '/':
-                return a / b;
-        }
-    }
-    return isNaN(tree.value) ? evaluateExpression(evaluatesTree(tree.left), tree.value, evaluatesTree(tree.right)) : tree.value;
+    return isNaN(tree.value) ? eval(evaluatesTree(tree.left) + tree.value + evaluatesTree(tree.right)) : tree.value;
 }
 
 const tree = new Tree('*');
