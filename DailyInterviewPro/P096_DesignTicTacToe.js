@@ -51,16 +51,12 @@ class TicTacToe {
         this.N = N;
         this.grid = [];
         while (N--) {
-            this.grid.push([]);
+            this.grid.push(new Array(N));
         }
         this.players = {
             1: 'X',
             2: 'O'
         };
-        this.playerMoves = {
-            1: [],
-            2: []
-        }
         this.moveCount = 0;
     }
 
@@ -68,13 +64,10 @@ class TicTacToe {
         if (this.isAllowed(x, y)) {
             this.moveCount++;
             this.grid[x][y] = this.players[player];
-            this.playerMoves[player].push([x, y]);
-            if (this.playerMoves[player].length >= 3) {
-                if (this.checkIfPlayerWin(player)) {
-                    console.log(`Player ${player} wins!!!`);
-                } else if (this.moveCount == (Math.pow(this.N, 2) - 1)) {
-                    console.log('Draw');
-                }
+            if (this.checkIfPlayerWin(x, y, this.players[player])) {
+                console.log(`Player ${player} wins!!!`);
+            } else if (this.moveCount == (Math.pow(this.N, 2) - 1)) {
+                console.log('Draw');
             }
         }
     }
@@ -83,10 +76,55 @@ class TicTacToe {
         return !this.grid[x][y];
     }
 
-    checkIfPlayerWin(player) {
-        let moves = this.playerMoves[player];
-        console.log(player, moves);
+    checkIfPlayerWin(x, y, s) {
+        const board = this.grid;
+        const n = this.N;
+        //check col
+        for (let i = 0; i < n; i++) {
+            if (board[x][i] != s)
+                break;
+            if (i === n - 1) {
+                //report win for s
+                return true;
+            }
+        }
 
+        //check row
+        for (let i = 0; i < n; i++) {
+            if (board[i][y] != s)
+                break;
+            if (i === n - 1) {
+                //report win for s
+                return true;
+            }
+        }
+
+        //check diag
+        if (x === y) {
+            //we're on a diagonal
+            for (let i = 0; i < n; i++) {
+                if (board[i][i] != s)
+                    break;
+                if (i === n - 1) {
+                    //report win for s
+                    return true;
+                }
+            }
+        }
+
+        //check anti diag (thanks rampion)
+        if (x + y === n - 1) {
+            for (let i = 0; i < n; i++) {
+                if (board[i][(n - 1) - i] != s)
+                    break;
+                if (i === n - 1) {
+                    //report win for s
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
 
@@ -99,69 +137,3 @@ board.move(2, 0, 1);
 board.move(1, 0, 2);
 board.move(2, 1, 1);
 console.log(board);
-
-/**
-public class TripleT {
-
-    enum State{Blank, X, O};
-
-    int n = 3;
-    State[][] board = new State[n][n];
-    int moveCount;
-
-    void Move(int x, int y, State s){
-        if(board[x][y] == State.Blank){
-            board[x][y] = s;
-        }
-        moveCount++;
-
-        //check end conditions
-
-        //check col
-        for(int i = 0; i < n; i++){
-            if(board[x][i] != s)
-                break;
-            if(i == n-1){
-                //report win for s
-            }
-        }
-
-        //check row
-        for(int i = 0; i < n; i++){
-            if(board[i][y] != s)
-                break;
-            if(i == n-1){
-                //report win for s
-            }
-        }
-
-        //check diag
-        if(x == y){
-            //we're on a diagonal
-            for(int i = 0; i < n; i++){
-                if(board[i][i] != s)
-                    break;
-                if(i == n-1){
-                    //report win for s
-                }
-            }
-        }
-
-        //check anti diag (thanks rampion)
-        if(x + y == n - 1){
-            for(int i = 0; i < n; i++){
-                if(board[i][(n-1)-i] != s)
-                    break;
-                if(i == n-1){
-                    //report win for s
-                }
-            }
-        }
-
-        //check draw
-        if(moveCount == (Math.pow(n, 2) - 1)){
-            //report draw
-        }
-    }
-}
- */
