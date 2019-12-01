@@ -16,10 +16,10 @@ const topKFreqWords = (words, k) => {
     let ans = [];
     let freq;
     for (let i = 0; i < sortedWords.length; i++) {
-        const e = sortedWords[i];
-        if (e[1] !== freq) {
-            ans.push(e[0]);
-            freq = e[1];
+        const [word, wordFreq] = sortedWords[i];
+        if (wordFreq !== freq) {
+            ans.push(word);
+            freq = wordFreq;
         }
     }
     return ans;
