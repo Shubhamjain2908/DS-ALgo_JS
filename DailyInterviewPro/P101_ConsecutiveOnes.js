@@ -9,6 +9,9 @@
         242 in binary is 0b11110010, so the longest run of 1 is 4.
  */
 
+/**
+ * Using Bit Magic: The idea is based on the concept that if we AND a bit sequence with a shifted version of itself, we’re effectively removing the trailing 1 from every sequence of consecutive 1s.
+ */
 const consecutiveOnes = x => {
     // Initialize result 
     let count = 0;
